@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Typomancers — class and combat systems design case study by Jay Yu-Che Tsai.">
+<title>Typomancers — Jay Yu-Che Tsai</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="nav"><div class="container nav-inner">
+  <a class="brand" href="index.html">← JAY YU-CHE TSAI</a>
+  <div class="nav-links"><a href="index.html#work">Projects</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></div>
+</div></nav>
+
+<main>
+<header class="project-hero-redesign typo-hero">
+  <div class="container">
+    <div class="eyebrow">Co-op Typing Combat · Unity</div>
+    <h1>Typomancers</h1>
+    <p class="lead">A cooperative combat system where typing performance powers abilities and distinct class roles shape how the team survives together.</p>
+    <div class="project-role-line">Class Design · Combat Systems · Gameplay Programming</div>
+    <div class="project-hero-video typo-hero-video">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/typomancers_gameplay.jpg">
+        <source src="assets/typomancers_hero.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</header>
+
+<section class="case">
+  <div class="container project-overview-grid">
+    <div>
+      <div class="eyebrow">Project Overview</div>
+      <h2>Turn typing skill into team combat roles.</h2>
+    </div>
+    <div class="overview-copy">
+      <p><strong>Typomancers</strong> is a cooperative typing roguelike where players attack, support teammates, and respond to threats by typing prompts during combat.</p>
+      <p>My main contribution was <strong>class and combat systems design</strong>: defining four complementary roles, building their passives and abilities, and connecting typing speed and accuracy to combat performance. I also implemented gameplay systems and helped iterate on class balance and combat flow.</p>
+      <div class="project-facts typo-facts">
+        <div><span>Engine</span><strong>Unity</strong></div>
+        <div><span>Team</span><strong>5</strong></div>
+        <div><span>Genre</span><strong>Co-op Typing Roguelike</strong></div>
+        <div><span>Primary Focus</span><strong>Class / Combat Design</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container balanced-case-section">
+    <div class="balanced-case-top">
+      <div class="balanced-case-copy">
+        <div class="eyebrow">Typing Combat System</div>
+        <h2>Typing performance becomes combat power.</h2>
+        <p>The core loop ties typing directly to combat decisions. Players first choose an ability, then type a target word above an ally or enemy, and finally complete a generated prompt to resolve the action. That same input layer is also used to destroy incoming word projectiles.</p>
+      </div>
+      <figure class="balanced-case-media">
+        <img src="assets/typomancers_combat.webp" alt="Typomancers combat showing players typing prompts while fighting enemies" loading="lazy" decoding="async">
+        <figcaption>Typing is not a separate minigame — it is the input layer for targeting, abilities, defense, and damage.</figcaption>
+      </figure>
+    </div>
+    <div class="balanced-feature-grid">
+      <article class="balanced-feature-card">
+        <h3>Execution</h3>
+        <p>Speed and accuracy both matter, so stronger typing improves combat output without reducing the system to pure button mashing.</p>
+      </article>
+      <article class="balanced-feature-card">
+        <h3>Target Words</h3>
+        <p>Typing the word above a character selects which ally or enemy receives the chosen ability.</p>
+      </article>
+      <article class="balanced-feature-card">
+        <h3>Prompts</h3>
+        <p>After choosing a target, players complete a generated sentence to deliver the attack, heal, buff, or debuff.</p>
+      </article>
+      <article class="balanced-feature-card">
+        <h3>Roguelike Modifiers</h3>
+        <p>Run modifiers can alter prompts and combat values, such as capitalizing letters, doubling or removing letters, and changing damage, healing, or projectile speed.</p>
+      </article>
+    </div>
+    <div class="balanced-goal-band">
+      <span>Design Goal</span>
+      <strong>Reward typing skill while encouraging class synergy and co-op coordination.</strong>
+    </div>
+  </div>
+</section>
+
+<section class="case typo-class-case">
+  <div class="container">
+    <div class="section-head project-section-head">
+      <div><div class="eyebrow">Class Design</div><h2>Four classes built around distinct strengths and team synergy.</h2></div>
+      <p class="section-copy">I designed the class set so each role supports a different way of contributing to combat. Their abilities and passives create clear strengths, while overlap between roles gives the team room to recover when something goes wrong.</p>
+    </div>
+    <div class="design-principle class-design-goal"><span>Design Goal</span><strong>Give every class a reason to rely on the others, so team composition changes how players approach combat.</strong></div>
+
+    <div class="class-card-grid">
+      <article class="class-card"><div class="card-kicker">All-Rounder</div><h3>Flexible support and damage</h3><p class="class-passive"><strong>Defining mechanic:</strong> Attacks leech a portion of damage dealt.</p><ul><li>Adapts between offense, healing, and utility</li><li>Covers gaps when another role is under pressure</li><li>Can weaken enemies and support allies</li></ul></article>
+      <article class="class-card"><div class="card-kicker">DPS</div><h3>High-risk burst damage</h3><p class="class-passive"><strong>Defining mechanic:</strong> Destroying projectiles charges a stronger next attack.</p><ul><li>Rewards confident typing and aggressive play</li><li>Converts openings into burst damage</li><li>Trades safety for higher output</li></ul></article>
+      <article class="class-card"><div class="card-kicker">Healer</div><h3>Sustain and recovery</h3><p class="class-passive"><strong>Defining mechanic:</strong> Healing is stronger on low-health allies.</p><ul><li>Stabilizes the team during heavy pressure</li><li>Creates recovery windows after mistakes</li><li>Can restore or revive vulnerable teammates</li></ul></article>
+      <article class="class-card"><div class="card-kicker">Enchanter</div><h3>Buffs, debuffs, and control</h3><p class="class-passive"><strong>Defining mechanic:</strong> Buffs applied to allies also affect the caster.</p><ul><li>Amplifies teammates through buffs and shields</li><li>Weakens enemies to create stronger team openings</li><li>Improves the value of other classes rather than replacing them</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section class="case typo-synergy-case">
+  <div class="container balanced-case-section">
+    <div class="balanced-case-top">
+      <div class="balanced-case-copy">
+        <div class="eyebrow">Co-op Combat</div>
+        <h2>Co-op works best when one role unlocks another.</h2>
+        <p>I designed the team dynamic so cooperation comes from ability interaction rather than just assigning labels. The interesting moments happen when one player sets up an opening and another converts it into damage, sustain, or safety.</p>
+      </div>
+      <figure class="balanced-case-media">
+        <img src="assets/typomancers_classes.webp" alt="Typomancers class design overview" loading="lazy" decoding="async">
+        <figcaption>Each class is readable on its own, but the system becomes stronger when roles cover one another's weaknesses.</figcaption>
+      </figure>
+    </div>
+    <div class="balanced-feature-grid">
+      <article class="balanced-feature-card">
+        <h3>Set Up → Burst</h3>
+        <p>The Enchanter can create stronger damage windows for the DPS through buffs and debuffs.</p>
+      </article>
+      <article class="balanced-feature-card">
+        <h3>Stabilize → Recover</h3>
+        <p>The Healer keeps the team alive while the All-Rounder fills whatever role is currently under pressure.</p>
+      </article>
+      <article class="balanced-feature-card">
+        <h3>Cover Weaknesses</h3>
+        <p>Flexible utility lets the team compensate when one class is busy, low on health, or dealing with another threat.</p>
+      </article>
+      <article class="balanced-feature-card">
+        <h3>Shared Targeting</h3>
+        <p>Because abilities can target allies or enemies, players constantly decide who needs support and which threat should be prioritized.</p>
+      </article>
+    </div>
+    <div class="balanced-goal-band">
+      <span>Team Goal</span>
+      <strong>Make cooperation emerge from complementary abilities and shared combat decisions.</strong>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="section-head project-section-head takeaway-head">
+      <div><div class="eyebrow">Design Takeaways</div><h2>Typing becomes more interesting when it shapes team decisions.</h2></div>
+      <p class="section-copy">Typomancers reinforced that typing skill works best when it affects more than raw damage. Targeting, prompt execution, class abilities, and roguelike modifiers all create different pressures that players have to solve together.</p>
+    </div>
+    <div class="takeaway-grid typo-takeaways">
+      <article><span>01</span><h3>Typing Skill Should Affect Decisions</h3><p>Speed and accuracy matter more when they influence who to target, when to commit to an ability, and how safely the team can respond under pressure.</p></article>
+      <article><span>02</span><h3>Classes Need Distinct Team Value</h3><p>A class feels meaningful when its strengths change what teammates can do, not just when it has different numbers or buttons.</p></article>
+      <article><span>03</span><h3>Systems Are Stronger When They Interact</h3><p>Target words, prompts, class abilities, and roguelike modifiers become more interesting when they influence one another instead of operating as separate mechanics.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="project-next"><div class="container project-next-inner">
+  <div><div class="eyebrow">Back to Work</div><h2>Selected Projects</h2></div>
+  <a class="text-link" href="index.html#work">View all projects <span aria-hidden="true">↗</span></a>
+</div></section>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><a href="index.html">← Back to portfolio</a><span>© 2026 Jay Yu-Che Tsai</span></div></footer>
+</body>
+</html>

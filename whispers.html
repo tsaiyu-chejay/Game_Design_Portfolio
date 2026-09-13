@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Whispers from the Deep — combat and core mechanic design case study by Jay Yu-Che Tsai.">
+<title>Whispers from the Deep — Jay Yu-Che Tsai</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="nav"><div class="container nav-inner">
+  <a class="brand" href="index.html">← JAY YU-CHE TSAI</a>
+  <div class="nav-links"><a href="index.html#work">Projects</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></div>
+</div></nav>
+
+<main>
+<header class="project-hero-redesign whispers-hero">
+  <div class="container">
+    <div class="eyebrow">2.5D Action Combat · Unreal Engine</div>
+    <h1>Whispers from the Deep</h1>
+    <p class="lead">A single-player action game built around composing spells in real time and choosing the right combination for each combat situation.</p>
+    <div class="project-role-line">Core Mechanic Design · Combat Design · Gameplay Engineering · UX / Playtest</div>
+    <div class="actions whispers-actions">
+      <a class="btn" href="https://www.youtube.com/watch?v=Wp5O9gE8J4A" target="_blank" rel="noreferrer">Watch trailer ↗</a>
+    </div>
+    <div class="project-hero-video whispers-hero-video">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/whispers_combat.jpg">
+        <source src="assets/whispers_hero.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</header>
+
+<section class="case">
+  <div class="container project-overview-grid">
+    <div>
+      <div class="eyebrow">Project Overview</div>
+      <h2>Turning spell construction into combat decisions.</h2>
+    </div>
+    <div class="overview-copy">
+      <p><strong>Whispers from the Deep</strong> is a single-player action game built around a combinational spellcasting system. Instead of selecting finished spells from a menu, players construct them during combat by combining a spell form with different effects.</p>
+      <p>My main focus was the <strong>core mechanic and combat design</strong>: defining how spells are constructed, giving different spell types and status effects distinct combat roles, and designing enemy situations that encourage players to switch between them. I also implemented gameplay and UI systems, ran playtests, iterated on the controls, and contributed to encounter and level design.</p>
+      <div class="project-facts whispers-facts">
+        <div><span>Engine</span><strong>Unreal Engine</strong></div>
+        <div><span>Team</span><strong>2</strong></div>
+        <div><span>Genre</span><strong>2.5D Action</strong></div>
+        <div><span>Primary Focus</span><strong>Combat / Core Mechanic</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="section-head project-section-head">
+      <div><div class="eyebrow">Core Combat System</div><h2>Compose spells around the combat problem.</h2></div>
+      <p class="section-copy">Spells are built from a short input sequence. The first input establishes the spell form, while the next input modifies its combat effect, letting the player adapt the same system to different enemy situations.</p>
+    </div>
+
+    <div class="spell-system-grid">
+      <div class="spell-layer">
+        <div class="card-kicker">Layer 01 · Spell Form</div>
+        <h3>Choose the spell form.</h3>
+        <div class="spell-input-list">
+          <div><kbd>I</kbd><span><strong>Single Target</strong><small>Focus damage on a priority enemy.</small></span></div>
+          <div><kbd>L</kbd><span><strong>AOE</strong><small>Apply pressure across a group.</small></span></div>
+          <div><kbd>K</kbd><span><strong>Teleport</strong><small>Reposition or escape danger.</small></span></div>
+        </div>
+      </div>
+      <div class="spell-plus" aria-hidden="true">+</div>
+      <div class="spell-layer">
+        <div class="card-kicker">Layer 02 · Modifier</div>
+        <h3>Choose the effect.</h3>
+        <div class="spell-input-list">
+          <div><kbd>I</kbd><span><strong>Paralyze</strong><small>Interrupt and control enemy actions.</small></span></div>
+          <div><kbd>J</kbd><span><strong>Poison</strong><small>Apply damage over time while repositioning.</small></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="spell-examples">
+      <article><span>I → J</span><h3>Soul Flame</h3><p>Single-target poison for sustained pressure on a priority enemy.</p></article>
+      <article><span>L → I</span><h3>Dark Flame Pillar</h3><p>AOE paralysis for controlling groups and creating space.</p></article>
+      <article><span>K</span><h3>Teleport</h3><p>A movement option for repositioning and escaping pressure.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="case whispers-combat-case">
+  <div class="container combat-case-grid">
+    <div class="combat-copy">
+      <div class="eyebrow">Combat Design</div>
+      <h2>Enemy pressure gives each spell a reason to exist.</h2>
+      <p>The spell system only works if combat creates reasons to choose between tools. I designed enemies and spell effects around distinct pressures—single threats, groups, sustained damage, interruption, and unsafe positioning—so different spell combinations solve different problems.</p>
+      <div class="combat-choice-list">
+        <div><strong>Single Target</strong><span>Focus a dangerous or high-priority enemy.</span></div>
+        <div><strong>AOE</strong><span>Control groups before they overwhelm the player.</span></div>
+        <div><strong>Poison</strong><span>Maintain damage while repositioning or preparing the next cast.</span></div>
+        <div><strong>Paralyze</strong><span>Interrupt attacks and temporarily reduce enemy pressure.</span></div>
+        <div><strong>Teleport</strong><span>Reset spacing when the player is surrounded or out of position.</span></div>
+      </div>
+      <p class="combat-design-goal"><strong>The goal was not to create one “best” spell, but to make the right choice depend on the current combat situation.</strong></p>
+    </div>
+    <figure class="combat-media">
+      <img src="assets/whispers_combat.jpg" alt="Whispers from the Deep combat showing the player fighting a group of enemies with spell effects" loading="lazy" decoding="async">
+      <figcaption>Different enemy groupings encourage the player to switch between focused damage, crowd control, and repositioning.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="section-head project-section-head">
+      <div><div class="eyebrow">Playtest-Driven Iteration</div><h2>Simplify execution, preserve the combat decisions.</h2></div>
+      <p class="section-copy">The first prototype made casting difficult for the wrong reason. Playtests showed that players were spending too much attention managing inputs, so I redesigned the controls while keeping the spell-combination decisions intact.</p>
+    </div>
+
+    <div class="iteration-compare">
+      <article class="iteration-card">
+        <div class="iteration-label">Before · Prototype</div>
+        <img src="assets/whispers_input_before.jpg" alt="Early Whispers prototype showing the original hold-to-chant and numbered charge attack input system" loading="lazy" decoding="async">
+        <h3>Too much simultaneous input.</h3>
+        <ul>
+          <li>Movement and spell inputs competed for the <strong>left hand</strong>.</li>
+          <li>Players held <strong>RMB to chant</strong> while also using the mouse to aim.</li>
+          <li>Number inputs had to be entered during specific <strong>cast-bar windows</strong>.</li>
+          <li>Players struggled to focus on combat decisions while managing the controls.</li>
+        </ul>
+      </article>
+      <article class="iteration-card">
+        <div class="iteration-label">After · Final Build</div>
+        <img src="assets/whispers_input_after.webp" alt="Whispers final build showing the revised combat system in play" loading="lazy" decoding="async">
+        <h3>The controls support the decision-making.</h3>
+        <ul>
+          <li>Spell inputs moved to <strong>I / J / K / L</strong>, distributing input across both hands.</li>
+          <li><strong>Auto-targeting</strong> removed the need to aim while composing a spell.</li>
+          <li>Chanting begins on the <strong>first spell input</strong> instead of requiring RMB hold.</li>
+          <li>Casting became faster to execute without simplifying the underlying spell choices.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="result-strip whispers-result"><span>Playtest Result</span><strong>Playtesters found the revised input more intuitive, and combat became smoother without losing the depth of the spell system.</strong></div>
+  </div>
+</section>
+
+<section class="case encounter-case">
+  <div class="container encounter-grid">
+    <div class="encounter-copy">
+      <div class="eyebrow">Encounter Design</div>
+      <h2>Use enemy composition to escalate combat pressure.</h2>
+      <p>I kept the encounter layouts straightforward so the focus stayed on the combat system. Rather than adding complex navigation, I used enemy count, grouping, and priority targets to increase pressure between encounters.</p>
+      <p>In this sketch, the first space uses normal enemies to establish the basic combat rhythm. After AOE becomes available, the next encounter groups enemies more tightly and introduces an elite target, creating a stronger reason to balance crowd control with focused damage.</p>
+      <div class="encounter-notes">
+        <div><span>01</span><strong>Establish Rhythm</strong><small>Normal enemies create a baseline combat pattern.</small></div>
+        <div><span>02</span><strong>Increase Density</strong><small>Grouped enemies make AOE more valuable.</small></div>
+        <div><span>03</span><strong>Add Priority Pressure</strong><small>An elite target forces the player to split attention between crowd control and focused damage.</small></div>
+      </div>
+    </div>
+    <figure class="encounter-media">
+      <img src="assets/whispers_encounter_sketch.jpg" alt="Hand-drawn Whispers encounter design sketch showing normal enemies, an elite enemy, and the point where AOE is learned" loading="lazy" decoding="async">
+      <figcaption>Encounter plan: normal enemies establish the baseline, then denser groups and an elite increase combat pressure.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="section-head project-section-head takeaway-head">
+      <div><div class="eyebrow">Design Takeaways</div><h2>Good combat depth comes from decisions, not input friction.</h2></div>
+      <p class="section-copy">The project reinforced that complexity is most valuable when it creates meaningful choices. Simplifying the controls gave players more attention to spend on spell selection, positioning, and enemy pressure.</p>
+    </div>
+    <div class="takeaway-grid whispers-takeaways">
+      <article><span>01</span><h3>Simplify Execution, Preserve Decisions</h3><p>Removing input friction made combat easier to execute without reducing the depth of the spell system.</p></article>
+      <article><span>02</span><h3>Give Every Tool a Combat Role</h3><p>Spell variety became meaningful when different enemy pressures created clear reasons to choose single-target, AOE, poison, paralyze, or teleport.</p></article>
+      <article><span>03</span><h3>Use Playtests to Find the Real Problem</h3><p>Playtesting showed that the original difficulty came from the controls rather than the combat itself, which led to the input redesign.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="project-next"><div class="container project-next-inner">
+  <div><div class="eyebrow">Next Case Study</div><h2>Typomancers</h2></div>
+  <a class="text-link" href="typomancers.html">View project <span aria-hidden="true">↗</span></a>
+</div></section>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><a href="index.html">← Back to portfolio</a><span>© 2026 Jay Yu-Che Tsai</span></div></footer>
+</body>
+</html>

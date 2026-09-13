@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The Unrealtor — puzzle and level design case study by Jay Yu-Che Tsai.">
+<title>The Unrealtor — Jay Yu-Che Tsai</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="nav"><div class="container nav-inner">
+  <a class="brand" href="index.html">← JAY YU-CHE TSAI</a>
+  <div class="nav-links"><a href="index.html#work">Projects</a><a href="index.html#about">About</a><a href="index.html#contact">Contact</a></div>
+</div></nav>
+
+<header class="project-hero project-hero-redesign">
+  <div class="container">
+    <div class="eyebrow">USC Capstone · Unity · Local Co-op</div>
+    <h1>The Unrealtor</h1>
+    <p class="lead">A local split-screen puzzle game where two players explore an impossible house and solve visual puzzles by combining objects, perspectives, and communication.</p>
+    <div class="project-role-line">Puzzle Design · Level Design · Systems Design</div>
+    <div class="project-hero-video">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/unrealtor_home_generated.jpg">
+        <source src="assets/home_unrealtor.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="case project-overview-case">
+  <div class="container project-overview-grid">
+    <div>
+      <div class="eyebrow">Project Overview</div>
+      <h2>Building a new co-op puzzle language.</h2>
+    </div>
+    <div class="overview-copy">
+      <p>The Unrealtor is a local cooperative puzzle game built by a team of roughly 30. Two players share the same strange house but view the world through separate split-screen perspectives, creating puzzles around what each player sees and how they communicate.</p>
+      <p>My work focused on <strong>puzzle design</strong> and <strong>level design</strong>: developing perspective-based puzzle ideas, refining progression and pacing, and shaping spaces so the environment supported both discovery and readability.</p>
+      <div class="project-facts">
+        <div><span>Engine</span><strong>Unity</strong></div>
+        <div><span>Team</span><strong>~30</strong></div>
+        <div><span>Format</span><strong>Local Co-op</strong></div>
+        <div><span>Role</span><strong>Puzzle / Level Design</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="section-head project-section-head">
+      <div><div class="eyebrow">Design Pillars</div><h2>The rules behind the experience.</h2></div>
+      <p class="section-copy">The game needed a clear identity that could support an unfamiliar co-op mechanic without making the experience feel purely abstract.</p>
+    </div>
+    <div class="pillar-grid">
+      <article class="pillar-card"><span>01</span><h3>Creative Thinking</h3><p>Perspective-based puzzles built around shape recognition, silhouettes, and optical illusions.</p></article>
+      <article class="pillar-card"><span>02</span><h3>Split-Screen Co-op</h3><p>Both players share the same space and solve problems through observation, discussion, and coordination.</p></article>
+      <article class="pillar-card"><span>03</span><h3>Satirical Tone</h3><p>A playful take on the stress and absurdity of searching for a new home.</p></article>
+      <article class="pillar-card"><span>04</span><h3>Impossible Architecture</h3><p>Surreal spaces connect in unexpected ways and reinforce the house's unstable visual identity.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container case-grid puzzle-system-grid">
+    <div>
+      <div class="eyebrow">Core Puzzle System</div>
+      <h2>A + B → C</h2>
+      <p>The core mechanic asks players to combine two visual fragments into a complete object. Early puzzles use literal halves; later puzzles rely more heavily on silhouette similarity, viewing angle, and abstraction.</p>
+      <div class="progression-list">
+        <div><span>Stage 1</span><strong>Literal</strong><small>Two recognizable halves form the target object.</small></div>
+        <div><span>Stage 2</span><strong>Similarity</strong><small>Different objects share the silhouette needed for the solution.</small></div>
+        <div><span>Stage 3</span><strong>Abstract</strong><small>Perspective and interpretation become part of identifying the match.</small></div>
+      </div>
+    </div>
+    <div class="project-visual"><img src="assets/unrealtor_core_system.webp" alt="The Unrealtor puzzle system showing two partial objects combining into a completed object and the progression from literal to abstract puzzles" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="section-head project-section-head">
+      <div><div class="eyebrow">Puzzle Case Study</div><h2>Perspective Puzzle — Extinguisher</h2></div>
+      <p class="section-copy">A puzzle built to teach that an object may only become meaningful from the correct viewing angle.</p>
+    </div>
+    <div class="extinguisher-visual"><img src="assets/unrealtor_extinguisher_progression.webp" alt="Extinguisher puzzle progression from scattered fragments to two aligned halves and a completed extinguisher" loading="lazy" decoding="async"></div>
+    <div class="case-study-layout extinguisher-copy-layout">
+      <div class="case-study-copy">
+        <p>A fire blocks progression, but the extinguisher is not presented as a complete object. Each half is made from scattered pieces that initially read as visual noise.</p>
+        <p>Players move around the fragments until they discover an angle where the pieces align into a recognizable half. Each player finds one half, communicates their view, and then both align the two halves at the split-screen boundary.</p>
+        <div class="case-study-callouts">
+          <div><strong>Discovery through movement</strong><span>Perspective is part of solving the puzzle, not just observing it.</span></div>
+          <div><strong>Communication</strong><span>Both players need to examine their pieces and coordinate the final alignment.</span></div>
+          <div><strong>Visual transformation</strong><span>Meaning emerges from fragments that look unrelated from the wrong angle.</span></div>
+        </div>
+      </div>
+      <div class="system-panel">
+        <div class="card-kicker">Alignment System</div>
+        <h3>Matching projections in screen space.</h3>
+        <p>I implemented a quad-based alignment check for each puzzle half. Transform matrices convert the quad vertices into screen-space positions, then the system compares the two projected shapes using configurable thresholds.</p>
+        <ul><li>Compare corresponding projected vertices</li><li>Check that both shapes are close enough to the screen center</li><li>Check that their projected size and position are close enough</li><li>Require both players to satisfy the conditions simultaneously</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="section-head project-section-head">
+      <div><div class="eyebrow">Level Design</div><h2>Keeping both players active.</h2></div>
+      <p class="section-copy">The endgame flow was redesigned around co-op pacing rather than simply placing the final pieces where their prerequisite puzzles ended.</p>
+    </div>
+    <div class="flow-case-grid">
+      <div class="flow-copy">
+        <div class="flow-block issue"><span>Original Flow</span><h3>One player waited while the other backtracked.</h3><p>The final puzzle pieces were placed in separate side rooms. After discovering both halves, one player had to stay in place while the other traveled back through the living room to reach the opposite room.</p></div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-block solution"><span>Redesigned Flow</span><h3>Side rooms unlock the finale; the hub hosts it.</h3><p>I moved the final interaction into the living room. The bedroom and bathroom still gate progression, but both players now converge on the final puzzle together instead of creating idle time.</p></div>
+      </div>
+      <div class="project-visual flow-visual"><img src="assets/unrealtor_flow_slide.webp" alt="Diagram comparing the original endgame flow and redesigned endgame flow in The Unrealtor" loading="lazy" decoding="async"></div>
+    </div>
+    <div class="result-strip"><span>Result</span><strong>Less downtime, less unnecessary backtracking, and a more synchronized co-op finale.</strong></div>
+  </div>
+</section>
+
+<section class="case bedroom-case">
+  <div class="container bedroom-grid">
+    <figure class="bedroom-media">
+      <img src="assets/unrealtor_childrens_bedroom.webp" alt="Final design of the Children's Bedroom in The Unrealtor" loading="lazy" decoding="async">
+      <figcaption>Final Children’s Bedroom redesign</figcaption>
+    </figure>
+    <div class="bedroom-copy">
+      <div class="eyebrow">Level Design · Children's Bedroom</div>
+      <h2>A playful room without obscuring the puzzles.</h2>
+      <p>I redesigned the Children's Bedroom around the feel of a playful daycare space, using bright furniture, oversized forms, and exaggerated scale to give the room a distinct identity.</p>
+      <p>Because players need to search the environment for puzzle pieces, I kept the large background shapes simple and readable. The environment could still feel colorful and playful without competing with the objects players needed to notice.</p>
+      <div class="bedroom-points">
+        <div><strong>Daycare-inspired identity</strong><span>Playful furniture, oversized forms, and bright colors give the room a distinct character.</span></div>
+        <div><strong>Clear background treatment</strong><span>Large wallpaper shapes establish atmosphere without adding excessive visual noise.</span></div>
+        <div><strong>Puzzle readability</strong><span>Background detail stays secondary so puzzle pieces remain easy to identify.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="container">
+    <div class="section-head project-section-head takeaway-head">
+      <div><div class="eyebrow">Design Takeaways</div><h2>What I learned from designing around a new co-op mechanic.</h2></div>
+      <p class="section-copy">Working on The Unrealtor changed how I think about scope, unfamiliar mechanics, and where complexity adds the most value.</p>
+    </div>
+    <div class="takeaway-grid">
+      <article><span>01</span><h3>Scope Deliberately</h3><p>A smaller, polished experience is stronger than a larger collection of ideas that do not have enough time for iteration and refinement.</p></article>
+      <article><span>02</span><h3>Novel Mechanics Benefit from Simplicity</h3><p>Because players had little prior experience with this kind of co-op puzzle, simpler puzzles often communicated the core mechanic more effectively and created a stronger foundation for later complexity.</p></article>
+      <article><span>03</span><h3>Build Depth Through the Core Mechanic</h3><p>If I continued developing the concept, I would explore more variations and twists on the perspective-matching mechanic before adding more environmental complexity.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="project-next"><div class="container project-next-inner">
+  <div><div class="eyebrow">Next Case Study</div><h2>Whispers from the Deep</h2></div>
+  <a class="text-link" href="whispers.html">View project <span aria-hidden="true">↗</span></a>
+</div></section>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><a href="index.html">← Back to portfolio</a><span>© 2026 Jay Yu-Che Tsai</span></div></footer>
+</body>
+</html>
